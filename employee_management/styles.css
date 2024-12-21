@@ -1,0 +1,423 @@
+  body {/* không cần*/
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6; /*Khoảng cách dòng*/
+    background-color: #fff; /* Đặt nền trắng cho body */
+    height: 100%;/* chiều cao trang 100%*/
+    margin: 0; /* Bỏ khoảng trắn mặc định của trang */
+  }
+  .header {/* không cần*/
+    height: 20px; /* Chiều cao header */
+    background-color: lightgray; /* Màu nền cho header */
+    text-align: center; /* Căn giữa chữ trong header */
+  }
+  .navbar {/*thanh điều hướng*/
+    background-color: #333;
+    color: #ffffff !important;/*chữ màu trắng. ưu tiên màu chữ này*/
+    border: none;/*bỏ viền*/
+  }
+  .navbar-brand, .navbar-nav li a {
+    color: #fff !important;/* màu chữ cho các ptu navbar-brand, các liên kết (a) trong navbar-nav là trắng và ưu tiên màu sắc này */
+  }
+  .jumbotron {/* thành phần chính */
+    background: #333;
+    color: #fff;
+    padding: 50px 25px;/* thiết lập khoảng cách 50px ở treen và dưới, 20px ở 2 bên */
+    margin-bottom: 0;/* Loại bỏ khoảng trắng phía dưới*/
+    font-family: 'Montserrat', sans-serif;
+  }
+  .jumbotron h1 {
+    font-size: 3em;/* thiết lập cỡ chũ cho tiêu đề h1 trong jumbotron là 3em */
+  }
+  .content {/* khung chứa */
+    padding: 40px;
+    /*text-align: center;*/
+    padding-top: 60px;
+    margin-left: 220px; /* Đẩy nội dung chính sang phải */
+    /*padding: 20px; /* Đệm cho nội dung chính */
+    flex: 1; /* cho phép content chiếm không gian còn lại trong khung chứa */
+    min-height: calc(100vh - 50px); /* đặt chiều cao tối thiểu là 100vh-50px tức là chiều cao của màn hình trừ đi phần header hoặc footer */
+  }
+  .contentt {/* khung chứa */
+    padding: 30px;
+    /*text-align: center;*/
+    padding-top: 60px;
+    margin-left: 220px; /* Đẩy nội dung chính sang phải */
+    /*padding: 20px; /* Đệm cho nội dung chính */
+    flex: 1; 
+    /*min-height: calc(100vh - 50px); */
+  }
+  .container{/* khung chứa */
+    margin-left: 220px; /* Đẩy nội dung chính sang phải */
+    /*padding: 20px; /* Đệm cho nội dung chính */
+    flex: 1; /* Nội dung chính chiếm không gian còn lại */
+  }
+  .containerr {/* khung chứa */
+    width: 90%; /* đặt độ rộng của container là 90% để không chiếm hết khung chứa */
+    margin: auto; /* căn giữa trong khung chưa */
+    overflow: hidden;/* giấu các ptu tràn khỏi containerr */
+  }
+  .footer {
+    background-color: #333;
+    color: white;
+    padding: 15px;/* khoảng cách xung quanh là 15px */
+    font-size: 14px;
+    bottom: 0; /* đặt ơt vị trí cuối cùng cho footer, để nó hiện thị cối trang */ 
+  }
+  .chat-bubble {
+    position: fixed;/*cố định trên màn hình */
+    bottom: 20px; /* Đặt bong bóng ở phía dưới cách 20px */
+    left: 20px;  /* Đặt bong bóng ở phía bên trái cách 20px*/
+    width: 60px;/* kích thước bong bóng chát 60px*/
+    height: 60px;
+    border-radius: 50%;/*tạo hình dạng tròn */
+    /*nội dung bên trong bong bóng chat được đặt vào giữa */
+    display: flex; justify-content: center; align-items: center;
+    cursor: pointer;/*khi di chuột lên bong bóng chát, có thể ấn vào */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* thêm bóng nổi lên khi di chuột vào */
+    z-index: 1000;/*bóng bóng chat luôn nằmd trên các tp khác */
+    background-color: #c2c2c2 !important; /* Màu cho Messenger */
+  }
+  .chat-bubble i {
+    font-size: 20px; /* Tăng kích thước của icon */
+  }
+
+  .chat-bubble:hover {
+    transform: scale(1.2);/*khi di chuột vào, bong bóng phóng to 1.2 lần*/
+    transition: transform 0.2s;/* hiệu ứng phóng to mượt hơn trong vòng 0.2 s */
+  }
+  .chat-form {
+    display: none; /* Ẩn form chat mặc định */
+    position: fixed;/* cố định không bị cuộn theo trang*/
+    bottom: 90px; /* Đặt form lên trên bong bóng */
+    left: 20px; /* Đặt form ở bên trái */
+    width: 300px;
+    background-color: #f9f9f9;
+    padding: 15px;/*khoảng cách nôij dung trong form */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;/* form luôn k bị đè*/
+    border-radius: 25px; /*bo tròn góc form */
+  }
+  .phone-chat-bubble {
+    position: fixed;
+    bottom: 90px; /* Đặt bong bóng ở phía dưới, cách bong bóng Messenger */
+    left: 20px;  /* Đặt bong bóng ở phía bên trái */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    background-color: #c2c2c2; /* Màu cho cuộc gọi */
+  }
+  .phone-chat-bubble i {
+    font-size: 20px; /* Tăng kích thước của icon */
+  }
+  .phone-chat-bubble:hover {
+    transform: scale(1.2);
+    transition: transform 0.2s;
+  }
+
+/* tạo kiểu thanh bên */
+  .sidebar { 
+    width: 200px;/* đặt chiều rộng là 200px */
+    background-color: #333;
+    color: white;
+    padding: 20px;/* Khoản cách nội dung bên trong sidebar*/
+    box-sizing: border-box;/*đảm bảo c/cao-rộng k vượt quá kích thức cố địng */
+    height: 800px; /* chiều cao sidebar là 800px*/
+    position: fixed; /* vị trí  của sidebar luôn cố định */
+    top: 50px;/* khoảng cách từ đầu trăng là 50px */
+  }
+
+.sidebar-buttons {
+    margin-bottom: 20px;/*khoảng cách giưã các nút */
+}
+
+.sidebar-buttons button { /* nút sidebar */
+    display: flex;/* căn chỉnh bên trong*/
+    align-items: center;/*căn giữa các ptu bên trong button theo chiều dọc */
+    width: 100%;/*chiều trộng nút button chiếm toàn bộ sidebar */
+    padding: 10px;/*khoangr cách bên trong nút  */
+    margin-bottom: 10px;/*khoảng các giữa các nút */
+    background-color: #333;
+    color: white;
+    border: none;/*loại bỏ viền mặc định */
+    cursor: pointer;/*khi ng dùng di vào đó thành biểu tượng con chuột */
+    text-align: left;/* căn chỉnh văn bản bên trong nút về phía trái */
+    font-size: 16px;/*đặt kích thước chữ trong nuts là 16px */
+}
+
+.sidebar-buttons button i {
+    margin-right: 10px;/*thêm khoảng cách bên phải icon để chữ và icon có khoảng cách */
+}
+
+.sidebar-buttons button:hover {
+    background-color: #ffffff;/*khi di chuột, nền của nút là màu trắng*/
+    color: #000000;/**/
+}
+
+.sidebar ul {
+    list-style: none;/*loại bỏ dấu chấm khi sử dụng <ul> để tạo danh sách*/
+    padding: 0;/*loại bỏ khoảng cách mặc định bên trong phần tử <ul>*/
+}
+
+.sidebar ul li a {
+    color: white;/*Đặt màu chữ của liên kết trong danh sachs là trắng */
+    text-decoration: none;/*loại bỏ gạch chân mặc định của các liên kết */
+    display: block;/*các liên kết chiêms toàn bộ chiều rộng của ptu <li> */
+    padding: 8px 0;/* thêm khoảng cách trên dưới */
+}
+
+.sidebar ul li a:hover {
+    color: #9e9da1;/* khi di chuột vào liên kết, màu chữ sẽ chuyển sang màu xám nhạt chút */
+}
+
+.clickable-row {
+  cursor: pointer;/*khi di chuột lên ptu này, con trỏ chuột sẽ thay đổi thành hình bàn tay */
+}
+.total-employees {
+  display: inline-block; /* Thay đổi thành thuộc tính không chiếm toàn bộ nhưng và có thể thay đổi được kích thươc block */
+  text-align: right; /* Căn nội dùng phải */
+  background-color: white; /* Nền trắng */
+  color: black; /* Chữ đen */
+  padding: 5px 10px; /* Thêm khoảng cách bên trong, 5px(trên dưới), 10px là (trái/phải) */
+  border: 1px solid #ddd; /* thêm viền xung quanh xám nhạt */
+  margin-top: 20px; /* Khoảng cách từ bảng đến tổng số nhân viên */
+  width: fit-content; /* Kích thước tự động điều chỉnh phù hợp với nội dung bên trong*/
+}
+
+.margin-right {
+  margin-right: 900px; /* Đặt khoảng cách bên phải là 900px */
+}
+.margin-left {
+  margin-left: 1000px; /* Đặt khoảng cách bên trái là 1000px  */
+}
+
+.custom-table {
+  width: 80%; /* Điều chỉnh độ rộng bảng 80% */
+  max-width: 1000px; /* Giới hạn độ rộng tối đa của bảng là 1000px */
+  margin: 0 auto; /* Canh giữa bảng theo chiều ngang */
+}
+
+.custom-table th, .custom-table td {
+  padding: 12px; /* thêm khoảng cách 12px bên trong các ô */
+  font-size: 16px; /* kích thước chữ trong bảng là 16px */
+}
+
+.long-search {
+  width: 1004370px; /* Đặt chiều rộng cho ô tìm kiếm */
+}
+
+.about {
+  background: #ffffff;
+  padding: 30px;/*khoảng cách xq phần này là 30px */
+  margin: 60px;/*tạo khoảng cách 60px từ phần tử xung quanh */
+}
+.about img {
+  float: left;/*đẩy hình ảnh sang trái  */
+  margin-right: 30px;/*tạo khoảng cách 30px từ ptu xung quanh */
+  width: 300px;/*đặt độ rộng ảnh là 300px */
+}
+.about:after {
+  /*đảm bảo phần about tự giãn chiều cao để chứa cả hình ảnh và nội dung */
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* Tùy chỉnh toàn bộ phần liên hệ */
+#contact {
+  background-color: #f7f7f7; /* Màu nền nhẹ nhàng */
+  color: #333; /* Màu chữ tối để dễ đọc */
+  padding: 60px 20px;/* tạo khoảng cách trên dưới 60px và trái phải 20px*/
+  border-radius: 8px;/* bo tròn các góc */
+}
+
+/* Tiêu đề */
+#contact h2 {
+  text-align: center;/* căn giữa tiêu đề*/
+  font-size: 2em;/*tăng kích thước chữ của tiêu đề lên 2 lần so với kích thước mặc định */
+  font-weight: bold;/* in đậm tiêu đề */
+  color: #040202; /* màu chữ tiêu đề */
+  margin-bottom: 30px;/*tạo khoảng cách 30px với nội dung phía dưới */
+}
+
+/* Phần thông tin liên hệ */
+#contact .col-sm-5 p {
+  font-size: 1.1em; /*tăng kích thước lên 1.1 so với kthuoc cố định */
+  line-height: 1.6;/*điều chinhr khoảng cách các dòng */
+  color: #555; /* Màu chữ nhạt hơn cho thông tin */
+}
+#contact .glyphicon {
+  color: #090606; /* Màu icon liên hệ */
+}
+
+/* Form nhập liệu */
+#contact .form-control {
+  border-radius: 5px;/*bo tròn các góc */
+  border: 1px solid #ccc;/*đặt viền xám nhạt cho các ô nhập liệu */
+  margin-bottom: 15px;/* tạo khoảng cách dưới */
+  box-shadow: none;/*không sử dụng hiệu ứng bóng */
+  transition: border-color 0.3s;/*hiệu ứng chuyển đổi mượt cho màu viền khi thay đổi */
+}
+
+
+/* Nút gửi */
+#contact .btn {
+  background-color: #000000;/*màu nút đen*/
+  color: #fff;/*màu chữ trắng */
+  font-size: 1.1em;/* kích thước nút tăng 1.1 lần*/
+  padding: 10px 25px;/* kích thước bên trong nút trên dưới 10px, trái phải 25px*/
+  border: none;/*bỏ đường viền */
+  border-radius: 25px;/* bo tròn nút với bán hình 25px */
+  transition: background-color 0.3s;/*hiêu ứng chuyển mượt cho màu nền khi thay điooir*/
+}
+
+
+/* Hiệu ứng chuyển động mượt */
+.slideanim {
+  visibility: hidden;/*ẩn các ptu có lớp này mặc định */
+}
+.slide {
+  /*hiển thị phần tử và áp dụng hoạt ảnh slide trong vòng 1s */
+  animation-name: slide;
+  animation-duration: 1s;
+  visibility: visible;
+}
+@keyframes slide {/* định nghĩa hoạt ảnh */
+  from {
+    /* ptu băts đầu có độ mờ 0(trong suốt) và dịch chuyển 20px xuôngs dưới */
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    /*phần tử trở lên rõ hơn với độ mừo 1 và dịch chuyển về đúng vị trí ban đầu của nó */
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Phần Features */
+#features {
+  background-color: #f9f9f9; /* Màu nền sáng nhẹ */
+  padding: 60px 20px;/* khoảnh cách trên dưới 60px và trái phải 20px*/
+  color: #333;/* màu chữ*/
+  text-align: center;/* chữ căn giữa*/
+  border-radius: 8px;/* bo tròn */
+}
+
+#features h2 {
+  font-size: 2em;/*kích thước chữ x2 mặc định */
+  color: #0b0606; /* Màu tiêu đề nổi bật */
+  margin-bottom: 30px;/* cách dưới 30px */
+  font-weight: bold;/*chữ in đậm */
+}
+
+/* Các thẻ feature */
+.features {
+  display: flex;/* cho phép dùng flexbox để sắp xếp các thẻ feature theo chiều ngang*/
+  flex-wrap: wrap;/*cho phép thẻ feature tự xuống dòng nếu k đủ chỗ */
+  justify-content: space-around;/*căn đều các thẻ feature đều được căn đều */
+  gap: 20px;/*khoảng cách giữa các thẻ feature là 20px */
+  margin-top: 20px;/*khoảng cách với phía trên là 20px */
+}
+/* từng thẻ feature*/
+.feature {
+  background-color: #ffffff; /* Màu nền của từng feature */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+  padding: 20px;/* tạo kcach bên trong thẻ trên dưới trái phải là 20px*/
+  width: 45%; /*độ rộng của thẻ 45%, để 2 thẻ có thể nằm cùng hàng cạnh nhau */
+  border-radius: 8px; /*bo viền bán kính 8px*/
+  transition: transform 0.3s, box-shadow 0.3s;/*thêm hiệu ứng chuyển đổi mượn khi có sự thay đổi là di chuyển và đổ bóng */
+}
+/* hiệu ứng khi rê chuột vào từng thẻ*/
+.feature:hover {
+  transform: translateY(-5px);/*thẻ sẽ di chuyển lên trên tạo hiệu ưunsg nổi lên*/
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);/*thêm hiệu ứng đổ bóng*/
+}
+/*Tiêu đề cho mỗi thẻ*/
+.feature h3 {
+  color: #030202;/*màu chữ*/
+  font-size: 1.4em;/* cỡ chữ x1.4 */
+  margin-bottom: 15px;/*cách dưới 15px*/
+}
+/*Đoạn văn bản trong mỗi thẻ*/
+.feature p {
+  font-size: 1em;/*cữo chữ x1*/
+  line-height: 1.6;/*khoảng cách các dòng*/
+  color: #555;
+}
+
+
+/* Section chính lọi ích*/
+#loiich {
+  display: flex;/*theo bố cục flexbox cho phpesp căn chỉnh các tp con theo chiều ngang*/
+  background-color: #f7f7f7;
+  padding: 30px;/*khoảng cách xng qunag 30px*/
+  border-radius: 8px;/*bo tròn*/
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);/*đổ bóng*/
+  max-width: 900px;/*chiều rộng max*/
+  margin: 0 auto;/*canh giữa trang*/
+}
+/*tiêu đề*/
+#loiich h2 {
+  color: #333; /* Màu chữ đen */
+  font-weight: bold;/*chưx in đậm*/
+  font-size: 2em;/*cỡ chữ x2*/
+  margin-bottom: 15px;/*cách nd phía dưới 15px*/
+}
+/*nội dung lới ích*/
+#loiich p {
+  font-size: 1.1em;/*cỡ chữ x1.1*/
+  color: #333;
+  margin-bottom: 20px;/*khoảng cách phía dưới là 20px*/
+}
+/*Danh sahcs trong lợi ích*/
+#loiich ul {
+  list-style: none;/*bỏ kí hiệu mặc định danh sách*/
+  padding: 0;/*loại bỏ khoảng cách mặc định của danh sách*/
+}
+/*các ptu trong danh sách*/
+#loiich ul li {
+  font-size: 1em;/*cỡ chữ x1*/
+  margin-bottom: 15px;/*mỗi ptu cahcs dưới nhau 15px */
+  padding-left: 30px;/* đẩy nd sang trái chút để chỗ cho icon*/
+  position: relative;/*thiêys lâ[j vị trí tương đối để định vị biểu tượng icon trước mỗi ptu*/
+  color: #333;/**/
+}
+/*biểu tượng trước mỗi mụ trong danh sách*/
+#loiich ul li:before {
+  content: "✔";/*icon trước mỗi mục*/
+  position: absolute;/*đihnj vị biểu tượng tại 1 vị trí tuyệt đối trong li */
+  left: 0;/*đặt biểu tượng tại cạnh trái */
+  color: #555; /* Màu xám cho biểu tượng */
+  font-size: 1.2em;/*cỡ chữ x1.2*/
+}
+
+#loiich ul li strong {
+  font-weight: bold;/*sẽ có đoạn văn bản in đậm trong danh sachs*/
+}
+
+.text-container {
+  flex: 1; /* Chiếm phần lớn không gian của section lợi ích, tự mở rông, tụư lấp đầy*/
+}
+/*biểu đồ tuổi giới tính*/
+.chart-container {
+  margin-top: 15px;
+  margin-left: 50px; /* Khoảng cách với đoạn văn */
+  flex-shrink: 0; /* Ngăn không cho thu hẹp khi bị giới hạn không gian, giữu nguyên kích thước biểu đồ haowjc nội dung*/
+}
+/*hình bên ngoài index*/
+.chart-containerr {
+  margin-top: 115px;
+  margin-left: 50px; /* Khoảng cách với đoạn văn */
+  flex-shrink: 0; /* Ngăn không cho thu hẹp khi bị giới hạn không gian, giữu nguyên kích thước biểu đồ haowjc nội dung*/
+}
+
+
+
